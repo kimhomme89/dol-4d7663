@@ -165,7 +165,6 @@
     <div class="count reveal" id="count"></div>
     <div class="btn-row reveal">
       <a class="btn" id="gcal" target="_blank" rel="noopener">구글 캘린더 저장</a>
-      <a class="btn" id="ics" download="daon-birthday.ics">휴대폰 캘린더 저장</a>
     </div>
   </section>
 
@@ -261,10 +260,6 @@
   document.getElementById('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
     + '&text=' + encodeURIComponent(title) + '&dates=20261205T030000Z/20261205T050000Z'
     + '&location=' + encodeURIComponent(ADDR);
-  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//daon//KO','BEGIN:VEVENT','UID:daon-20261205@invite',
-    'DTSTAMP:20261028T000000Z','DTSTART:20261205T030000Z','DTEND:20261205T050000Z',
-    'SUMMARY:' + title,'LOCATION:' + ADDR,'END:VEVENT','END:VCALENDAR'].join('\r\n');
-  document.getElementById('ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
 
   // 복사, 공유
   const toast = msg => { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); };
